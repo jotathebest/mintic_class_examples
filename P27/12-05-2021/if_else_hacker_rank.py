@@ -67,3 +67,14 @@ elif n in range(6, 21) and n % 2 == 0:
     print("Weird")
 else:
     print("Not Weird")
+
+# Solution 6
+
+if n % 2 != 0:
+    print("Weird")
+elif n % 2 == 0 and n >= 2 and n <= 5:
+    print("Not Weird")
+elif n % 2 == 0 and n in range(6, 21):
+    print("Weird")
+else:
+    print("Weird")
