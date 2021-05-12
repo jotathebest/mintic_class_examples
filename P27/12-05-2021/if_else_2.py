@@ -68,3 +68,16 @@ if num not in indexes:
     print("No valido")
 else:
     print(my_dict[num])
+
+# Solution 5
+
+month = ['','January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+n = input("Insert a number: ")
+n = int(n)
+if n < 0 and n > 12:
+    print("Inserte un numero valido")
+else:
+    if n in range(1,12):
+        print(month[n])
+    else:
+        print("Error") 
