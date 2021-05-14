@@ -9,6 +9,15 @@
 ## E,9,1
 ##
 
+cadena = input("Ingrese una letra y dos números separados por comas: ")
+cadena.split(",")
+lista= cadena.split(",")
+if (lista[1])>(lista[2]):
+    print (f" Max: {lista[1]}, Min: {lista[2]}")
+if (lista[2])>(lista[1]):
+    print (f" Max: {lista[2]}, Min: {lista[1]}")
+else:
+    print ("Los dos números ingresados son iguales")
 
 ##
 ## Por cada fila , obtenga el valor numérico mas pequeño y el valor mas grande.
