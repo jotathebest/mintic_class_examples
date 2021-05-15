@@ -9,6 +9,13 @@
 ## E,9,1
 ##
 
+my_str = input("Insert the words: ")
+my_list = my_str.split(",")  # [A, 9, 1]
+
+if int(my_list[1]) > int(my_list[2]):
+    print(f"max: {my_list[1]} | min: {my_list[2]}")
+else:
+    print(f"max: {my_list[2]} | min: {my_list[1]}")
 
 ##
 ## Por cada fila , obtenga el valor numérico mas pequeño y el valor mas grande.
