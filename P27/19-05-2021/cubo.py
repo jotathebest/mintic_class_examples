@@ -48,3 +48,17 @@ while n >= 1:
         break
     else:
         j -= 1
+
+
+# solution 5
+
+number = input("Insert a number: ")
+number = int(number)
+
+acumm = 1
+
+while acumm <= number:
+    print(f"number: {number} | acumm: {acumm} | result:  {acumm ** 3}")
+    if acumm == 15:
+        break
+    acumm += 1
