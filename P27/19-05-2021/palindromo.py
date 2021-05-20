@@ -36,3 +36,33 @@ for i in range(0, max_index):
     if phrase[i] != phrase[aux]:
         is_valid = False
     aux -= 1
+
+# Solution 4
+
+inp = 'dabale arroz a la zorra el abad'.replace(" ","")
+arr1 = list(inp)
+arr1.reverse()
+rev = ''.join(arr1)
+print(True if inp == rev else False) 
+
+# Solution 5
+
+phrase = input("Inserte la frase: ")
+phrase = phrase.replace(" ", "")
+phrase = phrase.lower()
+
+
+is_valid = True
+max_index = len(phrase) - 1
+number_of_elements = len(phrase)
+
+
+for i in range(0, number_of_elements):
+    if phrase[i] != phrase[max_index]:
+        is_valid = False
+        break
+    max_index -= 1
+
+print(
+    f"la frase: {phrase} es un palindromo" if is_valid == True else f"la frase {phrase} no es un palindromo"
+)
