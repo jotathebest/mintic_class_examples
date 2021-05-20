@@ -25,3 +25,14 @@ phrase = input("Insert a phrase to analyse: ")
 phrase = phrase.replace(" ", "")
 new_phrase = phrase[::-1]
 print(phrase == new_phrase)
+
+
+# Solution 3
+
+is_valid = True
+aux = len(phrase) - 1
+max_index = len(phrase)
+for i in range(0, max_index):
+    if phrase[i] != phrase[aux]:
+        is_valid = False
+    aux -= 1
