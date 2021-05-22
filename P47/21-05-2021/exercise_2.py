@@ -5,3 +5,17 @@
 
 people = ["Jonas", "Julio", "Mike", "Mez"]
 ages = [25, 30, 31, 39]
+
+length = len(people)
+
+# for i in range(0, length):
+#     name = people[i]
+#     age = ages[i]
+#     print(f"{name} {age}")
+
+index = 0
+while index < length:
+    name = people[index]
+    age = ages[index]
+    print(f"{name} {age}")
+    index += 1
