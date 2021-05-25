@@ -7,3 +7,15 @@
 # (hola carambola (estas cerrando) (muy mal los parentesis --> False
 # (hola carambola) (estas cerrando) (muy bien los parentesis) --> True
 # (hola carambola (estas cerrando (muy bien los parentesis))) --> True
+
+phrase = input("inserte la frase: ")
+phrase.replace(" ", "")
+
+contador = 0
+for letter in phrase:
+    if letter == "(":
+        contador += 1
+    if letter == ")":
+        contador -= 1
+
+print("Es correcto" if contador == 0 else "es incorrecto")
