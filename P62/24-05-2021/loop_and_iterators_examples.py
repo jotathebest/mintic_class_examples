@@ -41,6 +41,9 @@ for x in range(10):
 print(squares)
 
 # values = [expression for item in collection]
+
+# <store_var> = [<var_iterator> for <var_iterator> in range(<start>, <end>) <conditional>]
+
 squares = [x * x for x in range(10)]
 print(squares)
 
