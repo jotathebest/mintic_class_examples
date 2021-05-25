@@ -35,3 +35,14 @@ def reverse(Frase):
     return str
 print("La cadena origin : " + Frase,end="")
 print("La cadena invertida usando bucle: " + reverse(Frase), end="")
+
+# hola mundo
+# Iteration 1
+# i ---> h
+# str --> ""
+# h + "" --> h
+
+# Iteration 2
+# i ---> o
+# str --> "h"
+# o + "h" --> oh
