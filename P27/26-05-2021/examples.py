@@ -12,3 +12,19 @@ def multiplicar_listas(my_list):
 
 print(multiplicar_listas(my_list))
 print(multiplicar_listas(my_list_2))
+
+# max - min
+max(1,24,65,29)
+max([1,24,65,29])
+max(["1","24","65","29"])
+min([1,24,65,29])
+
+# sorted
+sorted([1, 3, 5, 2, -1, 2], reverse=True)
+sorted({"a": 1, "c": 2, "b": 1}, reverse=True)
+
+# print 
+print("abb", "ccc", sep="/", end="-")
+
+
+
