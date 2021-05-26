@@ -4,12 +4,12 @@ Infinite iteratorsInfinite iterators allow you to work with a for loop in a diff
 like if it was a while loop
 """
 
-# from itertools import count
+from itertools import count
 
-# for n in count(5, 3):
-#     if n > 20:
-#         break
-#     print(n, end=', ')  # instead of newline, comma and space
+for n in count(5, 3):
+    if n > 20:
+        break
+    print(n, end=', ')  # instead of newline, comma and space
 
 """
 The count factory class makes an iterator that just goes on and on counting. It starts from 5 and keeps adding 3 to it. We need to manually break it if we don't want to get stuck in an infinite loop.
