@@ -12,4 +12,4 @@ def delta_time(date_str, days_input):
     return new_date.strftime("%Y-%m-%d")
 
 
-print(delta_time("2015-06-22", -5))
+print(delta_time("2015-06-22", 5))
