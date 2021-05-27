@@ -8,4 +8,5 @@ from os import read, write
 
 # complete without instance
 from math import *
+sqrt(3)
 print(raiz_cuadrada(2))
