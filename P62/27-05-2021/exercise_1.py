@@ -1,6 +1,6 @@
 # Ud ha sido encargado de crear un sistema que sirva cómo insumo para recurso humano
-# en aras de encontrar posibles problemas de saludo dentro de los empleados,así cómo
-# procesamiento de datos basado en fecha de ingreso en otro script en el cual no participas
+# en aras de encontrar posibles problemas de salud dentro de los empleados,así cómo
+# procesamiento de datos basado en fecha de ingreso en otro script en el cual no participas.
 # Para esto, se le proporcionan las siguientes listas:
 
 # 1. Una lista con la edad de los empleados
@@ -26,13 +26,14 @@
 #     a. Que la composicion corporal no sea normal
 #     b. Que tenga comorbilidades
 #     c. Que su edad sea mayor a 45 años
+# 5. age con la edad de la persona
 
 result = [
     {
         "name": "jose garcia",
         "age": 30,
         "risk": False,
-        "date": "2020-March-05",
+        "date": "2020-March-05 23:59",
         "corporal_comp": "Normal",
     }
 ]

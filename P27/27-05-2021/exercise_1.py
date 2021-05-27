@@ -72,7 +72,7 @@ begin_date = [
 
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
-print(age, names, imc, begin_date, comorbilities, sep="\n")
+# print(age, names, imc, begin_date, comorbilities, sep="\n")
 
 
 def rrhh_inform(ages, names, imc, begin_date, comorbilities):
@@ -89,8 +89,33 @@ def rrhh_inform(ages, names, imc, begin_date, comorbilities):
 
 
 # funcion para hallar el composicion corporal
-# args --> imc: int
+# args --> imc: float
 # return --> Composición_corporal: str
+
+# El indice de masa corporal responde a lo siguiente
+# Composición corporal 	    Índice de masa corporal (IMC)
+# Peso inferior al normal 	    Menos de 18.5
+# Normal                  	    18.5 – 24.9
+# Peso superior al normal 	    25.0 – 29.9
+# Obesidad 	                    Más de 30.0
+
+
+def get_corporal_composition(imc: float):
+    """
+    Esta funcion devuelve la composicion corporal dado un indice de masa corporal
+    """
+    imc = round(imc, 1)
+    if imc < 18.5:
+        return "Peso inferior al normal"
+    if imc >= 18.5 and imc <= 24.9:
+        return "Normal"
+    if imc >= 25 and imc <= 29.9:
+        return "Peso superior al normal"
+    if imc >= 30:
+        return "Obesidad"
+
+
+print(get_corporal_composition(20.1))
 
 # funcion para definir el riesgo
 # args --> composicion_corporal:str, comorbilidades:bool, edad:int
