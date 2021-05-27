@@ -12,3 +12,19 @@ def double_list(my_list):
 
 result = double_list([True, "jose", 2.3, "garcia", 25, 60])
 print(result)
+
+# max - min
+
+max(1, 3, 4, 5, -1)
+max([1, 3, 4, 5, -1])
+max((1, 3, 4, 5, -1))
+max(("1", 3, 4, 5, -1))
+min(("1", "3", "4", "5", "-1"))
+
+# sorted
+
+sorted([1, 4, 5, 1, -1, 10, -4], reverse=True)
+sorted([1, 4, 5, 1, -1, 10, -4])
+sorted([1, 4, 5, 1, -1, 10, -4], reverse=False)
+
+
