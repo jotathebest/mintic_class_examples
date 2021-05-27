@@ -1,5 +1,5 @@
 # Ud ha sido encargado de crear un sistema que sirva cómo insumo para recurso humano
-# en aras de encontrar posibles problemas de saludo dentro de los empleados,así cómo
+# en aras de encontrar posibles problemas de salud dentro de los empleados,así cómo
 # procesamiento de datos basado en fecha de ingreso en otro script en el cual no participas
 # Para esto, se le proporcionan las siguientes listas:
 
