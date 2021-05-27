@@ -1,6 +1,6 @@
 # Ud ha sido encargado de crear un sistema que sirva cómo insumo para recurso humano
 # en aras de encontrar posibles problemas de salud dentro de los empleados,así cómo
-# procesamiento de datos basado en fecha de ingreso en otro script en el cual no participas
+# procesamiento de datos basado en fecha de ingreso en otro script en el cual no participas.
 # Para esto, se le proporcionan las siguientes listas:
 
 # 1. Una lista con la edad de los empleados
@@ -26,13 +26,14 @@
 #     a. Que la composicion corporal no sea normal
 #     b. Que tenga comorbilidades
 #     c. Que su edad sea mayor a 45 años
+# 5. age con la edad de la persona
 
 result = [
     {
         "name": "jose garcia",
         "age": 30,
         "risk": False,
-        "date": "2020-March-05",
+        "date": "2020-March-05 23:59",
         "corporal_comp": "Normal",
     }
 ]
@@ -72,3 +73,37 @@ begin_date = [
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
 print(age, names, imc, begin_date, comorbilities, sep="\n")
+
+
+def rrhh_inform(ages, names, imc, begin_date, comorbilities):
+    # algorithm
+    return [
+        {
+            "name": "jose garcia",
+            "age": 30,
+            "risk": False,
+            "date": "2020-March-05 23:59",
+            "corporal_comp": "Normal",
+        }
+    ]
+
+
+# funcion para hallar el composicion corporal
+# args --> imc: int
+# return --> Composición_corporal: str
+
+# funcion para definir el riesgo
+# args --> composicion_corporal:str, comorbilidades:bool, edad:int
+# return --> risk:bool
+
+# funcion para cambiar el formato de la fecha
+# args --> fecha:str [formato mes/dia/año hora:minuto AM/PM]
+# return --> fecha:str [formato año-mes(en letras, completo)-dia hora(formato militar):minuto]
+
+# emparejar cada item de cada lista en un diccionario
+# args --> ages, names, imc, begin_date, comorbilities
+# return --> result_total:list
+
+# construir diccionario
+# args --> composicion_corporal, risk, name, age, fecha
+# return --> result:dict
