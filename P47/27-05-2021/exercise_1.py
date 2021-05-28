@@ -86,6 +86,45 @@ comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 # Obesidad 	                    Máyor o igual de 30.0
 
 
+def get_corporal_comp(imc: float):
+    """
+    Funcion que retorna la composicion corporal dado un indice de masa corporal
+
+    Args:
+        imc (float): Indice de masa corporal
+
+    Returns:
+        (str): Retorna la composicion corporal
+    """
+    if imc < 18.5:
+        return "Peso inferior al normal"
+    if imc >= 18.5 and imc < 25:
+        return "Normal"
+    if imc >= 25.0 and imc < 30:
+        return "Peso superior al normal"
+    if imc >= 30:
+        return "Obesidad"
+
+
+def get_corporal_comp(ind):
+    corporal_comp = ""
+    options = [
+        "Peso inferior al normal",
+        "Normal",
+        "Peso superior al normal",
+        "Obesidad",
+    ]
+    if ind < 18.5:
+        corporal_comp = options[0]
+    elif ind >= 18.5 and ind < 25:
+        corporal_comp = options[1]
+    elif ind >= 25 and ind < 30:
+        corporal_comp = options[2]
+    else:
+        corporal_comp = options[3]
+    return corporal_comp
+
+
 # funcion para ver si cumple con las tres condiciones de riesgo
 # args --> corporal_comp: str, comorbility: bool, age: int
 # return --> risk: bool
