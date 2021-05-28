@@ -12,9 +12,9 @@
 # El indice de masa corporal responde a lo siguiente
 # Composición corporal 	    Índice de masa corporal (IMC)
 # Peso inferior al normal 	    Menos de 18.5
-# Normal                  	    18.5 – 24.9
-# Peso superior al normal 	    25.0 – 29.9
-# Obesidad 	                    Más de 30.0
+# Normal                  	    Mayor o igual a 18.5 – menor a 25
+# Peso superior al normal 	    Mayor o igual a 25.0 – menor a 30
+# Obesidad 	                    Máyor o igual de 30.0
 
 # Problema:
 # Tu script debe entregar una lista de diccionarios, con las siguientes llaves:
@@ -72,4 +72,32 @@ begin_date = [
 
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
-print(age, names, imc, begin_date, comorbilities, sep="\n")
+# print(age, names, imc, begin_date, comorbilities, sep="\n")
+
+# funcion obtener la composicion corporal
+# args --> imc: float
+# return --> corporal_comp: str
+
+# El indice de masa corporal responde a lo siguiente
+# Composición corporal 	    Índice de masa corporal (IMC)
+# Peso inferior al normal 	    Menos de 18.5
+# Normal                  	    Mayor o igual a 18.5 – menor a 25
+# Peso superior al normal 	    Mayor o igual a 25.0 – menor a 30
+# Obesidad 	                    Máyor o igual de 30.0
+
+
+# funcion para ver si cumple con las tres condiciones de riesgo
+# args --> corporal_comp: str, comorbility: bool, age: int
+# return --> risk: bool
+
+# funcion para dar formato a la fecha
+# args --> date: str [formato mes/dia/año hora:minuto AM/PM]
+# return --> date: str [formato año-mes(en letras, completo)-dia hora(formato militar):minuto]
+
+# organizar la información edad, nombre, comorbilidad, fecha, imc --> lista[{diccionario_info_paciente}]
+# args --> age: list, names: list, imc: list, begin_date: list, comorbilities: list
+# return --> result: list [{"age": 10, "name": "jose", "comorbility": True, "date": "2021-03-4", "imc": 18.5}]
+
+# funcion intermedia para obtener diccionario ordenado
+
+# funcion que reciba un dict y devuelve dict
