@@ -57,7 +57,7 @@ def random_date(start, end, prop):
     return str_time_prop(start, end, "%m/%d/%Y %I:%M %p", prop)
 
 
-age = [random.randint(18, 65) for i in range(1, 50)]
+ages = [random.randint(18, 65) for i in range(1, 50)]
 names = [
     random.choice(["jose", "wendy", "betsy", "carolina", "gonzalo"])
     + " "
@@ -186,4 +186,22 @@ def process_data(
     # Adds the person_dict to result
 
     for index, name in enumerate(names):
-        pass
+        age_person = ages[index]
+        imc_person = imc[index]
+        date_person = begin_date[index]
+        comorbility_person = comorbilities[index]
+
+        corporal_comp = get_corporal_composition(imc_person)
+        risk = get_risk(corporal_comp, comorbility_person, age_person)
+        new_date_person = convert_date(date_person)
+
+        personal_dict = build_person_dict(
+            corporal_comp, risk, name, age_person, new_date_person
+        )
+
+        result.append(personal_dict)
+
+    return result
+
+
+print(process_data(ages, names, imc, begin_date, comorbilities))
