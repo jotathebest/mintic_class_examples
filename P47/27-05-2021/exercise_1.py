@@ -128,10 +128,25 @@ def get_corporal_comp(ind):
 # funcion para ver si cumple con las tres condiciones de riesgo
 # args --> corporal_comp: str, comorbility: bool, age: int
 # return --> risk: bool
+# risk que guardara un booleano, en verdadero, si se cumplen todas las siguientes condiciones:
+#     a. Que la composicion corporal no sea normal
+#     b. Que tenga comorbilidades
+#     c. Que su edad sea mayor a 45 años
+
+
+def get_risk(corporal_comp: str, has_comorbility: bool, age: int):
+    return True if corporal_comp != "Normal" and has_comorbility and age > 45 else False
+
 
 # funcion para dar formato a la fecha
 # args --> date: str [formato mes/dia/año hora:minuto AM/PM]
 # return --> date: str [formato año-mes(en letras, completo)-dia hora(formato militar):minuto]
+import datetime
+
+# strftime --> formato print
+# strptime --> leer fechas
+# 06/28/2008 02:13 AM
+
 
 # organizar la información edad, nombre, comorbilidad, fecha, imc --> lista[{diccionario_info_paciente}]
 # args --> age: list, names: list, imc: list, begin_date: list, comorbilities: list
