@@ -22,7 +22,7 @@
 # 2. date que tendrá que guardar la fecha de entrada en formato
 # año-mes(en letras, completo)-dia hora(formato militar):minuto
 # 3. corporal_comp que guardará la composicion corporal del IMC
-# 4. risk que guardara un booleano, en verdadero, si se cumple:
+# 4. risk que guardara un booleano, en verdadero, si se cumple todas las siguientes condiciones:
 #     a. Que la composicion corporal no sea normal
 #     b. Que tenga comorbilidades
 #     c. Que su edad sea mayor a 45 años
@@ -72,4 +72,62 @@ begin_date = [
 
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
-print(age, names, imc, begin_date, comorbilities, sep="\n")
+# print(age, names, imc, begin_date, comorbilities, sep="\n\n")
+
+# --- funciones
+# procesar el imc y que entregue la composición corporal
+# args --> imc: float
+# return --> corporal_comp: str
+
+# El indice de masa corporal responde a lo siguiente
+# Composición corporal 	    Índice de masa corporal (IMC)
+# Peso inferior al normal 	    Menos de 18.5
+# Normal                  	    Mayor o igual a 18.5 – menor a 25
+# Peso superior al normal 	    Mayor o igual a 25.0 – menor a 30
+# Obesidad 	                    Máyor o igual de 30.0
+
+
+def get_corporal_comp(imc: float):
+    """Retorna la composicion corporal dado un indice de masa
+
+    Args:
+        imc (float): Indice de masa corporal
+
+    Returns:
+        str: Composicion corporal
+    """
+    if imc < 18.5:
+        return "Peso inferior al normal"
+    if imc >= 18.5 and imc < 25:
+        return "Normal"
+    if imc >= 25 and imc < 30:
+        return "Normal"
+    if imc >= 30:
+        return "Obesidad"
+
+
+# procesar la fecha
+# args --> fecha: str [formato mes/dia/año hora:minuto AM/PM]
+# return --> fecha:str [año-mes(en letras, completo)-dia hora(formato militar):minuto]
+
+# procesar el riesgo
+# args --> corporal_comp:str, age:int, comorbility:bool
+# return --> risk: bool
+
+# reciba datos
+# args --> ages: list, names: list, begin_date: list, comorbilities: list, imc: list
+# return --> result_total: list
+
+# funcion que me retorne un diccionario para una persona con las llaves name, risk, date, age, corporal_comp
+# args --> name:str, date:str, age:int, corporal_comp:str
+# return --> person_dict: {}
+
+# funcion para iterar las listas
+# funcion para ordenar los datos
+
+
+# --- Ideas de iteración y ordenamiento ---
+# un diccionario
+# dato dentro de la funcion que nos arroje el indice dentro de las listas para agregar las llaves
+# zip
+# crear listas con riesgo y fecha para reemplazarlos dentro del diccionario
