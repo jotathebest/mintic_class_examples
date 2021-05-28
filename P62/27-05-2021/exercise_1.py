@@ -12,9 +12,9 @@
 # El indice de masa corporal responde a lo siguiente
 # Composición corporal 	    Índice de masa corporal (IMC)
 # Peso inferior al normal 	    Menos de 18.5
-# Normal                  	    18.5 – 24.9
-# Peso superior al normal 	    25.0 – 29.9
-# Obesidad 	                    Más de 30.0
+# Normal                  	    Mayor o igual a 18.5 – menor a 25
+# Peso superior al normal 	    Mayor o igual a 25.0 – menor a 30
+# Obesidad 	                    Máyor o igual de 30.0
 
 # Problema:
 # Tu script debe entregar una lista de diccionarios, con las siguientes llaves:
