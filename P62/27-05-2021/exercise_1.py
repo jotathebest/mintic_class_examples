@@ -57,7 +57,7 @@ def random_date(start, end, prop):
     return str_time_prop(start, end, "%m/%d/%Y %I:%M %p", prop)
 
 
-age = [random.randint(18, 65) for i in range(1, 50)]
+ages = [random.randint(18, 65) for i in range(1, 50)]
 names = [
     random.choice(["jose", "wendy", "betsy", "carolina", "gonzalo"])
     + " "
@@ -66,14 +66,14 @@ names = [
 ]
 imc = [round(random.random() * 100, 2) for i in range(1, 50)]
 
-begin_date = [
+begin_dates = [
     random_date("1/1/2008 1:30 PM", "1/1/2009 4:50 AM", random.random())
     for i in range(1, 50)
 ]
 
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
-print(age, names, imc, begin_date, comorbilities, sep="\n\n")
+# print(ages, names, imc, begin_dates, comorbilities, sep="\n\n")
 
 # --- funciones
 # procesar el imc y que entregue la composición corporal
@@ -161,15 +161,44 @@ def build_personal_dict(name: str, date: str, age: int, corporal_comp: str, risk
 # args --> ages: list, names: list, begin_date: list, comorbilities: list, imc: list
 # return --> result_total: list
 
-# crear un arreglo para guardar resultados
-# recorrer las listas
-# extraer la siguiente informacion: personal_age, personal_date, personal_name, personal_comor, personal_imc
-# extraer personal_composition_corp --> get_corporal_comp(personal_imc)
-# extraer risk --> get_risk()
-# extraer new_date --> convert_date()
-# create personal_dict --> build_personal_dict()
-# agregar a los resultados el diccionario personal
 
+def process_data(
+    ages: list, names: list, begin_date: list, comorbilities: list, imc: list
+):
+
+    # crear un arreglo para guardar resultados
+    result = []
+
+    # recorrer las listas
+    for index, name in enumerate(names):
+        # extraer la siguiente informacion: personal_age, personal_date, personal_name, personal_comor, personal_imc
+        personal_age = ages[index]
+        personal_name = name
+        personal_comor = comorbilities[index]
+        personal_imc = imc[index]
+        personal_date = begin_date[index]
+
+        # extraer personal_composition_corp --> get_corporal_comp(personal_imc)
+        personal_composition_corp = get_corporal_comp(personal_imc)
+
+        # extraer risk --> get_risk()
+        risk = get_risk(personal_composition_corp, personal_age, personal_comor)
+
+        # extraer new_date --> convert_date()
+        new_date = convert_date(personal_date)
+
+        # create personal_dict --> build_personal_dict()
+        personal_dict = build_personal_dict(
+            personal_name, new_date, personal_age, personal_composition_corp, risk
+        )
+
+        # agregar a los resultados el diccionario personal
+        result.append(personal_dict)
+
+    return result
+
+
+print(process_data(ages, names, begin_dates, comorbilities, imc))
 
 # --- Ideas de iteración y ordenamiento ---
 # un diccionario
