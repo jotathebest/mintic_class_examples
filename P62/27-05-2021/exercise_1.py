@@ -73,7 +73,7 @@ begin_date = [
 
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
-# print(age, names, imc, begin_date, comorbilities, sep="\n\n")
+print(age, names, imc, begin_date, comorbilities, sep="\n\n")
 
 # --- funciones
 # procesar el imc y que entregue la composición corporal
@@ -160,6 +160,15 @@ def build_personal_dict(name: str, date: str, age: int, corporal_comp: str, risk
 # reciba datos
 # args --> ages: list, names: list, begin_date: list, comorbilities: list, imc: list
 # return --> result_total: list
+
+# crear un arreglo para guardar resultados
+# recorrer las listas
+# extraer la siguiente informacion: personal_age, personal_date, personal_name, personal_comor, personal_imc
+# extraer personal_composition_corp --> get_corporal_comp(personal_imc)
+# extraer risk --> get_risk()
+# extraer new_date --> convert_date()
+# create personal_dict --> build_personal_dict()
+# agregar a los resultados el diccionario personal
 
 
 # --- Ideas de iteración y ordenamiento ---
