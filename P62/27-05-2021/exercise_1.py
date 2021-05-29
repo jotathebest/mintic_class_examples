@@ -41,6 +41,7 @@ result = [
 # los scripts de abajo serviran para que tengas listas de prueba
 import random
 import time
+import datetime
 
 
 def str_time_prop(start, end, time_format, prop):
@@ -85,8 +86,6 @@ comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 # Normal                  	    Mayor o igual a 18.5 – menor a 25
 # Peso superior al normal 	    Mayor o igual a 25.0 – menor a 30
 # Obesidad 	                    Máyor o igual de 30.0
-
-
 def get_corporal_comp(imc: float):
     """Retorna la composicion corporal dado un indice de masa
 
@@ -101,29 +100,66 @@ def get_corporal_comp(imc: float):
     if imc >= 18.5 and imc < 25:
         return "Normal"
     if imc >= 25 and imc < 30:
-        return "Normal"
+        return "Peso superior al normal"
     if imc >= 30:
         return "Obesidad"
 
-
-# procesar la fecha
-# args --> fecha: str [formato mes/dia/año hora:minuto AM/PM]
-# return --> fecha:str [año-mes(en letras, completo)-dia hora(formato militar):minuto]
 
 # procesar el riesgo
 # args --> corporal_comp:str, age:int, comorbility:bool
 # return --> risk: bool
 
+# risk que guardara un booleano, en verdadero, si se cumple todas las siguientes condiciones:
+#     a. Que la composicion corporal no sea 'Normal'
+#     b. Que tenga comorbilidades
+#     c. Que su edad sea mayor a 45 años
+def get_risk(corporal_comp: str, age: int, has_comorbilities: bool):
+    return (
+        True if corporal_comp != "Normal" and has_comorbilities and age > 45 else False
+    )
+
+
+# procesar la fecha
+# args --> fecha: str [formato mes/dia/año hora:minuto AM/PM] 06/28/2008 02:13 AM
+# return --> fecha:str [año-mes(en letras, completo)-dia hora(formato militar):minuto]
+# strptime() ---> leer fechas
+# strftime() --> imprimir con formato
+def convert_date(date_str: str):
+    date = datetime.datetime.strptime(date_str, "%m/%d/%Y %I:%M %p")
+    new_date = date.strftime("%Y-%B-%d %H:%M")
+    return new_date
+
+
+# funcion para ordenar los datos
+# funcion que me retorne un diccionario para una persona con las llaves name, risk, date, age, corporal_comp
+# args --> name:str, date:str, age:int, corporal_comp:str, risk: bool
+# return --> person_dict: {}
+#  {
+#         "name": "jose garcia",
+#         "age": 30,
+#         "risk": False,
+#         "date": "2020-March-05 23:59",
+#         "corporal_comp": "Normal",
+#     }
+
+
+def build_personal_dict(name: str, date: str, age: int, corporal_comp: str, risk: bool):
+
+    personal_dict = {
+        "name": name,
+        "date": date,
+        "age": age,
+        "corporal_comp": corporal_comp,
+        "risk": risk,
+    }
+
+    return personal_dict
+
+
+# funcion para iterar las listas
 # reciba datos
 # args --> ages: list, names: list, begin_date: list, comorbilities: list, imc: list
 # return --> result_total: list
-
-# funcion que me retorne un diccionario para una persona con las llaves name, risk, date, age, corporal_comp
-# args --> name:str, date:str, age:int, corporal_comp:str
-# return --> person_dict: {}
-
-# funcion para iterar las listas
-# funcion para ordenar los datos
 
 
 # --- Ideas de iteración y ordenamiento ---
