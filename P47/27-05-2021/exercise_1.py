@@ -41,6 +41,7 @@ result = [
 # los scripts de abajo serviran para que tengas listas de prueba
 import random
 import time
+import datetime
 
 
 def str_time_prop(start, end, time_format, prop):
@@ -56,7 +57,7 @@ def random_date(start, end, prop):
     return str_time_prop(start, end, "%m/%d/%Y %I:%M %p", prop)
 
 
-age = [random.randint(18, 65) for i in range(1, 50)]
+ages = [random.randint(18, 65) for i in range(1, 50)]
 names = [
     random.choice(["jose", "wendy", "betsy", "carolina", "gonzalo"])
     + " "
@@ -65,14 +66,14 @@ names = [
 ]
 imc = [round(random.random() * 100, 2) for i in range(1, 50)]
 
-begin_date = [
+begin_dates = [
     random_date("1/1/2008 1:30 PM", "1/1/2009 4:50 AM", random.random())
     for i in range(1, 50)
 ]
 
 comorbilities = [random.choice([True, False]) for i in range(1, 50)]
 
-# print(age, names, imc, begin_date, comorbilities, sep="\n")
+# print(ages, names, imc, begin_dates, comorbilities, sep="\n\n")
 
 # funcion obtener la composicion corporal
 # args --> imc: float
@@ -106,23 +107,23 @@ def get_corporal_comp(imc: float):
         return "Obesidad"
 
 
-def get_corporal_comp(ind):
-    corporal_comp = ""
-    options = [
-        "Peso inferior al normal",
-        "Normal",
-        "Peso superior al normal",
-        "Obesidad",
-    ]
-    if ind < 18.5:
-        corporal_comp = options[0]
-    elif ind >= 18.5 and ind < 25:
-        corporal_comp = options[1]
-    elif ind >= 25 and ind < 30:
-        corporal_comp = options[2]
-    else:
-        corporal_comp = options[3]
-    return corporal_comp
+# def get_corporal_comp(ind):
+#     corporal_comp = ""
+#     options = [
+#         "Peso inferior al normal",
+#         "Normal",
+#         "Peso superior al normal",
+#         "Obesidad",
+#     ]
+#     if ind < 18.5:
+#         corporal_comp = options[0]
+#     elif ind >= 18.5 and ind < 25:
+#         corporal_comp = options[1]
+#     elif ind >= 25 and ind < 30:
+#         corporal_comp = options[2]
+#     else:
+#         corporal_comp = options[3]
+#     return corporal_comp
 
 
 # funcion para ver si cumple con las tres condiciones de riesgo
@@ -141,17 +142,70 @@ def get_risk(corporal_comp: str, has_comorbility: bool, age: int):
 # funcion para dar formato a la fecha
 # args --> date: str [formato mes/dia/año hora:minuto AM/PM]
 # return --> date: str [formato año-mes(en letras, completo)-dia hora(formato militar):minuto]
-import datetime
 
 # strftime --> formato print
 # strptime --> leer fechas
 # 06/28/2008 02:13 AM
 
 
+def convert_date(date_str):
+    date = datetime.datetime.strptime(date_str, "%m/%d/%Y %I:%M %p")
+    new_date = date.strftime("%Y-%B-%d %H:%M")
+    return new_date
+
+
+# funcion intermedia para obtener diccionario ordenado por persona
+# args --> name: str, age: int, risk: bool, date: str, corporal_comp: str
+# return --> personal_dict: dict -->
+#  {
+#    "name": "jose garcia",
+#    "age": 30,
+#    "risk": False,
+#    "date": "2020-March-05 23:59",
+#    "corporal_comp": "Normal",
+#  }
+
+
+def build_personal_dict(name: str, age: int, risk: bool, date: str, corporal_comp: str):
+    personal_dict = {
+        "name": name,
+        "age": age,
+        "risk": risk,
+        "date": date,
+        "corporal_comp": corporal_comp,
+    }
+    return personal_dict
+
+
 # organizar la información edad, nombre, comorbilidad, fecha, imc --> lista[{diccionario_info_paciente}]
 # args --> age: list, names: list, imc: list, begin_date: list, comorbilities: list
 # return --> result: list [{"age": 10, "name": "jose", "comorbility": True, "date": "2021-03-4", "imc": 18.5}]
 
-# funcion intermedia para obtener diccionario ordenado
+# obtener de las listas la edad, imc, fecha, nombre y comorbilidad por persona
+def process_data(
+    ages: list, names: list, imc: list, begin_dates: list, comorbilities: list
+):
+    result = []
+    for index in range(0, len(names)):
+        personal_name = names[index]
+        personal_age = ages[index]
+        personal_imc = imc[index]
+        personal_date = begin_dates[index]
+        comorbility = comorbilities[index]
+        # obtener composicion corporal para la persona  --> get_corporal_comp(imc)
+        corporal_comp = get_corporal_comp(personal_imc)
+        # obtener el riesgo para la persona  -->get_risk(edad, composicion_corporal, comorbilidad)
+        risk = get_risk(corporal_comp, comorbility, personal_age)
+        # obtener la fecha en el formato deseado para la persona --> convert_date(fecha_ingreso)
+        personal_new_date = convert_date(personal_date)
+        # necesitamos obtener el diccionario para la persona --> build_personal_dict(name, age, risk, date , corporal_comp)
+        personal_dict = build_personal_dict(
+            personal_name, personal_age, risk, personal_new_date, corporal_comp
+        )
+        # necesitamos agregar el diccionario a la lista de resultados
+        result.append(personal_dict)
 
-# funcion que reciba un dict y devuelve dict
+    return result
+
+
+print(process_data(ages, names, imc, begin_dates, comorbilities))
