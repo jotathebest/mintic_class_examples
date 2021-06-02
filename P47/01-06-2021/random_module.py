@@ -1,5 +1,6 @@
 # Generate 3 random integers between 100 and 999 which is divisible by 5
 import random
+import string
 
 numbers = []
 for i in range(1, 4):
@@ -74,10 +75,27 @@ else:
 
 # Pick a random character from a given String
 
-# Generate  random String of length 5.
+# Generate random String of length 5.
 # hint: use the string module
+
+letters = string.ascii_letters
+random_letters = random.choices(letters, k=5)
+
+my_str = ""
+for letter in random_letters:
+    my_str = my_str + letter
+
+print(my_str)
+
+my_str = "".join(random_letters)
+print(my_str)
 
 
 # Generate a random Password which meets the following conditions:
 # Password length must be 10 characters long.
 # It must contain at least 2 upper case letters, 1 digit, and 1 special symbol.
+
+upper_letters = random.choices(string.ascii_uppercase, k=2)
+digit = random.choices(string.digits, k=1)
+special_symbol = random.choices(string.punctuation, k=1)
+letters = random.choices(string.ascii_letters, k=6)
