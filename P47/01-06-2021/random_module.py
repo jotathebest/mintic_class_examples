@@ -95,7 +95,63 @@ print(my_str)
 # Password length must be 10 characters long.
 # It must contain at least 2 upper case letters, 1 digit, and 1 special symbol.
 
+# Solution 1
 upper_letters = random.choices(string.ascii_uppercase, k=2)
 digit = random.choices(string.digits, k=1)
 special_symbol = random.choices(string.punctuation, k=1)
 letters = random.choices(string.ascii_letters, k=6)
+
+password = "".join(upper_letters)
+password = password + "".join(digit)
+password = password + "".join(special_symbol)
+password = password + "".join(letters)
+
+password_list = list(password)
+random.shuffle(password_list)
+password = "".join(password_list)
+
+# Solution Elizabeth
+
+
+def clave_ale():
+    mayus = random.choices(string.ascii_uppercase, k=2)
+    nume = random.choices(string.digits, k=1)
+    simb = random.choices(string.punctuation, k=1)
+    resto = random.choices(string.ascii_letters, k=6)
+    resultado = mayus + nume + simb + resto
+    random.shuffle(resultado)
+    print("".join(resultado))
+
+
+clave_ale()
+
+# Solution Camilo
+
+
+def pass_generator(long: int):
+    lower_n = random.randint(1, long - 4)
+    upper_n = random.randint(2, long - lower_n - 2)
+    digits_n = random.randint(1, long - lower_n - upper_n - 1)
+    symbols_n = random.randint(1, long - lower_n - upper_n - digits_n)
+
+    upper_chars = random.choices(string.ascii_uppercase, k=upper_n)
+    lower_chars = random.choices(string.ascii_lowercase, k=lower_n)
+    digits = random.choices(string.digits, k=digits_n)
+    symbols = random.choices(string.punctuation, k=symbols_n)
+    password = upper_chars + lower_chars + digits + symbols
+
+    if len(password) < long:
+        password += random.choices(string.ascii_letters, k=long - len(password))
+    random.shuffle(password)
+
+    return "".join(password)
+
+
+length = 10
+my_password = pass_generator(length)
+print(f"Generated password ({length} characters): {my_password}")
+
+
+upper_chars = random.choices(
+    string.ascii_uppercase, k=random.randint(2, random.randint(3, 10))
+)
