@@ -1,4 +1,27 @@
 # Generate 3 random integers between 100 and 999 which is divisible by 5
+import random
+
+numbers = []
+for i in range(1, 4):
+    numero = random.randrange(0, 100, 5)
+    numbers.append(numero)
+print(numero)
+
+# EJERCICIO 1
+import random
+
+
+def num_div_cinco():
+    num1 = 0
+    num2 = 0
+    num3 = 0
+    num1 = random.randrange(100, 999, 5)
+    num2 = random.randrange(100, 999, 5)
+    num3 = random.randrange(100, 999, 5)
+    return (num1, num2, num3)
+
+
+print(num_div_cinco())
 
 # Random Lottery Pick. Generate 100 random lottery tickets and pick two lucky tickets from it as a winner.
 # Asks to the user for a number, and print if he is a winner or not
