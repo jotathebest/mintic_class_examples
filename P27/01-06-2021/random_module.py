@@ -71,7 +71,38 @@ print(my_str)
 # Password length must be 10 characters long.
 # It must contain at least 2 upper case letters, 1 digit, and 1 special symbol.
 
-upper_letters = random.choices(string.ascii_uppercase, k=2)
+# Solution jose
+upper_letters = random.choices(string.ascii_uppercase, k=random.randint(2, 10))
 digit = random.choices(string.digits, k=1)
 special_symbol = random.choices(string.punctuation, k=1)
-lower_letters = random.choices(string.ascii_lowercase, k=6)
+letters = random.choices(string.ascii_letters, k=6)
+
+password = "".join(upper_letters)
+password = password + "".join(digit)
+password = password + "".join(special_symbol)
+password = password + "".join(letters)
+
+password_list = list(password)
+random.shuffle(password_list)
+password = "".join(password_list)
+print(password)
+
+# Solution Sandra
+
+upercase = random.choices(string.ascii_uppercase, k=2)
+digit = random.choices(string.digits, k=1)
+symbol = random.choices(string.punctuation, k=1)
+lower = random.choices(string.ascii_lowercase, k=6)
+
+# primero uno las listas en una sola
+lista_unida = upercase + digit + symbol + lower
+print(f"La lista inicial es:")
+print(lista_unida)
+
+# mezclo el contenido de la lista unida
+contraseña = random.sample(lista_unida, 10)
+
+# quitar las comillas a la contraseña con join
+
+print(f"La contraseña es: ")
+print("".join(contraseña))

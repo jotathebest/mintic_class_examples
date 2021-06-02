@@ -25,6 +25,7 @@ foo()
 
 def foo():
     y = "local"
+    pepito = "jose"
 
 
 foo()
@@ -42,7 +43,7 @@ foo()
 
 # Example 5
 
-x = "global "
+x = "pepito"
 
 
 def foo():
@@ -51,6 +52,10 @@ def foo():
     x = x * 2
     print(x)
     print(y)
+
+
+def foo2():
+    print(x)
 
 
 foo()
