@@ -26,8 +26,90 @@ my_dict.get("name-1", "la llave no existe")
 my_dict = {}
 my_dict["name"] = "jose"
 
+# Solution Aldo
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+# Expected Result : {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+
+Result = {}
+for dicX in (dic1, dic2, dic3):
+    for key, values in dicX.items():
+        Result[key] = values
+
+print(Result)
+
+# Solution Camilo
+
+result = {}
+for i in range(1, 7):
+    if 1 <= i < 3:
+        result[i] = dic1.get(i)
+    if 3 <= i < 5:
+        result[i] = dic2.get(i)
+    if 5 <= i < 7:
+        result[i] = dic3.get(i)
+print(result)
+
+# Solution Eduardo
+
+
+def Dics(dic1, dic2, dic3):
+    dic_final = {}
+
+    for key in dic1.keys():
+        dic_final[key] = dic1.get(key)
+
+    for key in dic2.keys():
+        dic_final[key] = dic2.get(key)
+
+    for key in dic3.keys():
+        dic_final[key] = dic3.get(key)
+
+    return dic_final
+
+
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+print(Dics(dic1, dic2, dic3))
+
+# Solution Jose
+
+my_dict = {}
+my_dict.update(dic1)
+my_dict.update(dic2)
+my_dict.update(dic3)
+
+print(my_dict)
+
+# Solution Jose 2
+
+my_dict = {**dic1, **dic2, **dic3}
+print(my_dict)
 
 # Write a Python script to check whether a given key already exists in a dictionary.
+my_dict = {"name": "jose"}
+
+
+def pepito(my_dict, key_name):
+    aux = my_dict.get(key_name, None)
+    if aux is None:
+        print("No existe")
+    else:
+        print("Existe")
+
+
+# Solution Luis
+
+
+def val_dic(dic, llav):
+    lis_key = dic.keys()
+    if llav in lis_key:
+        print("Existe")
+    else:
+        print("No existe")
+
 
 # Write a Python program to iterate over dictionaries using for loops.
 
