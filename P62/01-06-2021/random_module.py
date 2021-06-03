@@ -68,3 +68,29 @@ print(my_str)
 # string.punctuation
 # string.ascii_uppercase
 # string.digits
+
+# Solution 1
+upper_list = random.choices(string.ascii_uppercase, k=2)
+digit_list = random.choices(string.digits, k=1)
+symbol_list = random.choices(string.punctuation, k=1)
+letters_list = random.choices(string.ascii_letters, k=6)
+
+password = "".join(upper_list)
+password = password + "".join(digit_list)
+password = password + "".join(symbol_list)
+password = password + "".join(letters_list)
+
+password_list = list(password)
+random.shuffle(password_list)
+password = "".join(password_list)
+
+
+# Solution 2
+upper_list = random.choices(string.ascii_uppercase, k=2)
+digit_list = random.choices(string.digits, k=1)
+symbol_list = random.choices(string.punctuation, k=1)
+letters_list = random.choices(string.ascii_letters, k=6)
+
+password_list = upper_list + digit_list + symbol_list + letters_list
+password = random.sample(password_list, k=10)
+password = "".join(password)
