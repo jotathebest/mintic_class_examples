@@ -1,5 +1,45 @@
 # Write a Python script to concatenate following dictionaries to create a new one.
 
+my_dict = {"name": "jose"}
+print(my_dict.get("surname", "error"))
+print(my_dict["name"])
+
+# solution 1
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+dic4 = {**dic1, **dic2, **dic3}
+print(dic4)
+
+# Solution 2
+
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+dic1.update(dic2)
+dic1.update(dic3)
+print(dic1)
+
+# Solution 3
+my_dict = {**dic1, **dic2, **dic3}
+print(my_dict)
+
+# solution 4
+for key, value in dic1.items():
+    my_dict[key] = value
+
+
+my_dict
+{1: 10, 2: 20}
+
+for key, value in dic2.items():
+    my_dict[key] = value
+
+
+for key, value in dic3.items():
+    my_dict[key] = value
+
+
 # Sample Dictionary :
 # dic1={1:10, 2:20}
 # dic2={3:30, 4:40}
