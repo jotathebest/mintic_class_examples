@@ -42,7 +42,7 @@ foo()
 
 # Example 5
 
-x = "global "
+x = "pepito"
 
 
 def foo():

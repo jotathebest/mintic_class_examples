@@ -6,6 +6,26 @@
 # dic3={5:50,6:60}
 # Expected Result : {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
 
+# iterar
+for key in dic1.keys():
+    print(key)
+
+for value in dic1.values():
+    print(value)
+
+for key, value in dic1.items():
+    print(key, value)
+
+
+# obtener valores
+my_dict = {"name": "jose", "surname": "garcia", "email": "test@test.com", "age": 30}
+my_dict["name"]
+my_dict.get("name-1", "la llave no existe")
+
+# crear valores
+my_dict = {}
+my_dict["name"] = "jose"
+
 
 # Write a Python script to check whether a given key already exists in a dictionary.
 

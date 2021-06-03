@@ -49,6 +49,21 @@ for key, value in dic3.items():
 
 # Write a Python script to check whether a given key already exists in a dictionary.
 
+# Solution 1
+exists = False
+dic1 = {"name": "jose", "surname": "garcia"}
+key_to_search = input("inserta la llave a buscar: ")
+for key, value in dic1.items():
+    if key_to_search == key:
+        exists = True
+
+print("existe" if exists else "no existe")
+
+# Solution 2
+key_to_search = input("inserta la llave a buscar: ")
+exists = key_to_search in dic1.keys()
+print("existe" if exists else "no existe")
+
 # Write a Python program to iterate over dictionaries using for loops.
 
 # Write a Python script to generate and print a dictionary that contains a number (between 1 and n)
