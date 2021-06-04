@@ -6,6 +6,99 @@
 # dic3={5:50,6:60}
 # Expected Result : {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
 
+my_dict = {"name": "jose", "surname": "garcia", "email": "test@test.com", "age": 30}
+print(my_dict.get("name-1", None))
+print(my_dict["name"])
+
+# iterar
+for key in my_dict.keys():
+    print(key)
+
+for value in my_dict.values():
+    print(value)
+
+for key, value in my_dict.items():
+    print(key, value)
+
+# acceder a valores
+my_dict["name"]
+var = my_dict.get("name-1", False)
+
+# Crear valores
+my_dict["name"] = "jose nuevo creado"
+
+# Solution Miguel
+def unificar(dic1, dic2, dic3):
+    llaves1 = dic1.keys()
+    valores1 = dic1.values()
+    llaves2 = dic2.keys()
+    valores2 = dic2.values()
+    llaves3 = dic3.keys()
+    valores3 = dic3.values()
+    dicfinal = {}
+    for i, j in zip(llaves1, valores1):
+        dicfinal[i] = j
+    for i, j in zip(llaves2, valores2):
+        dicfinal[i] = j
+    for i, j in zip(llaves3, valores3):
+        dicfinal[i] = j
+    return dicfinal
+
+
+diccionario1 = {1: 10, 2: 20}
+diccionario2 = {3: 30, 4: 40}
+diccionario3 = {5: 50, 6: 60}
+print(unificar(diccionario1, diccionario2, diccionario3))
+
+# Solution Jefferson
+
+dic1 = {1: 10, 2: 20}
+dic2 = {3: 30, 4: 40}
+dic3 = {5: 50, 6: 60}
+dic4 = {}
+for key, value in dic1.items():
+    dic4[key] = value
+for key, value in dic2.items():
+    dic4[key] = value
+for key, value in dic3.items():
+    dic4[key] = value
+print(dic4)
+
+# Solution Camila
+
+
+def crear_diccionario():
+    dic1 = {1: 10, 2: 20}
+    dic2 = {3: 30, 4: 40}
+    dic3 = {5: 50, 6: 60}
+    dict = dic1
+    for key, value in dic2.items():
+        dict[key] = value
+    for key, value in dic3.items():
+        dict[key] = value
+    return dict
+
+
+print(crear_diccionario())
+
+# Solution Adrian
+dic = {}
+for i in dic1, dic2, dic3:
+    for key, value in i.items():
+        dic[key] = value
+
+print(dic)
+
+# Solution Jose
+
+my_dict = {}
+for element in [dic1, dic2, dic3]:
+    my_dict.update(element)
+
+print(my_dict)
+
+my_dict = {**dic1, **dic2, **dic3, **dic4}
+print(my_dict)
 
 # Write a Python script to check whether a given key already exists in a dictionary.
 
