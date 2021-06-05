@@ -109,6 +109,24 @@ print(my_dict)
 # Sample Dictionary ( n = 5) :
 # Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
+list = [1, 2, 3, 4, 5]
+num = {}
+for x in list:
+    num[x] = x * x
+print(num)
+
+
+def diccionario_cuadrado(n: int):
+    diccionario = {}
+    for i in range(1, n + 1):
+        diccionario[i] = i ** 2
+        print(diccionario)
+
+
+n = int(input("Ingrese un número: "))
+diccionario_cuadrado(n)
+
+
 # Write a Python program to sum all the items in a dictionary.
 # my_dict =  {'data1':100,'data2':-54,'data3':247}
 
@@ -116,6 +134,25 @@ print(my_dict)
 # d1 = {'a': 100, 'b': 200, 'c':300}
 # d2 = {'a': 300, 'b': 200, 'd':400}
 # Sample output: Counter({'a': 400, 'b': 400, 'd': 400, 'c': 300})
+
+d1 = {"a": 100, "b": 200, "c": 300}
+d2 = {"a": 300, "b": 200, "d": 400}
+
+result = {}
+
+for key, value in d1.items():
+    if key not in d2.keys():
+        result[key] = d2[key]
+    else:
+        result[key] = value + d2[key]
+
+for key, value in d2.items():
+    if key not in result.keys():
+        result[key] = value
+
+from collections import Counter
+
+result = Counter(d1) + Counter(d2)
 
 # Write a Python program to print all unique values in a dictionary.
 # Sample Data : [{"V":"S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII":"S005"}, {"V":"S009"},{"VIII":"S007"}]
