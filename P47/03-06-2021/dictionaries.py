@@ -118,8 +118,26 @@ def val_dic(dic, llav):
 # Sample Dictionary ( n = 5) :
 # Expected Output : {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
+dict_num = {}
+n = int(input("ingrese un numero: "))
+for i in range(1, n + 1):
+    dict_num[i] = i ** 2
+
+print(dict_num)
+
 # Write a Python program to sum all the items in a dictionary.
 # my_dict =  {'data1':100,'data2':-54,'data3':247}
+
+# Solution Camilo
+
+my_dict = {"data1": 100, "data2": -54, "data3": 247}
+total = 0
+for value in my_dict.values():
+    total += value
+print(total)
+
+# Solution Jose
+total = sum(my_dict.values())
 
 # Write a Python program to combine two dictionary adding values for common keys.
 # d1 = {'a': 100, 'b': 200, 'c':300}
@@ -128,7 +146,29 @@ def val_dic(dic, llav):
 
 # Write a Python program to print all unique values in a dictionary.
 # Sample Data : [{"V":"S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"}, {"VII":"S005"}, {"V":"S009"},{"VIII":"S007"}]
-# Expected Output : Unique Values: {'S005', 'S002', 'S007', 'S001', 'S009'}
+# Expected Output : Unique Values: ['S005', 'S002', 'S007', 'S001', 'S009']
+
+dict_list = [
+    {"V": "S001"},
+    {"V": "S002"},
+    {"VI": "S001"},
+    {"VI": "S005"},
+    {"VII": "S005"},
+    {"V": "S009"},
+    {"VIII": "S007"},
+]
+
+results = []
+
+for my_dict in dict_list:
+    value = list(my_dict.values())[0]
+    if value not in results:
+        results.append(value)
+
+print(results)
+
+set([1, 2, 1, 1, 3])
+
 
 # Write a Python program to create a dictionary from a string.
 # Note: Track the count of the letters from the string.
