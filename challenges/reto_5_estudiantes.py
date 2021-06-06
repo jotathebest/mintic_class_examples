@@ -86,7 +86,7 @@ def get_max_price_type(types_list: list, prices_list: list):
     Returns:
         str: Fecha con histórico
     """
-    max_price = get_min_average_price(prices_list)
+    max_price = get_max_average_price(prices_list)
 
     # Algoritmo para obtener el índice del máximo de la lista de precios acá
 
