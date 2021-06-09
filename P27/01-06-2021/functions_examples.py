@@ -73,5 +73,4 @@ def apply_operation(math_operation, number):
 
 data = {"math_operation": math.sqrt, "number": 100}
 
-
-fun(**data)
+apply_operation(**data)
