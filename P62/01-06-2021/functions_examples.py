@@ -58,8 +58,36 @@ def minimum(*n):
 
 # Create a function that calculates the maximum inside a list
 
+def maximum(*numbers):
+    if len(numbers) == 0:
+        return None
+    max_number = numbers[0]
+    for number in numbers:
+        if number > max_number:
+            max_number = number
+    return max_number
+
+def maximum(*numbers):
+    if len(numbers) == 0:
+        return None
+
+    return max(numbers)
+
+
 # variable keywords
 
 
 def func(**kwargs):
     print(kwargs)
+
+# create a function that follows this structure:
+
+# fun(<operation_math>, <number>):
+#     return operation_math(number)
+
+def fun(math_operation, number):
+    return math_operation(number)
+
+data = {"math_operation": math.sqrt, "number": 100}
+
+fun(**data)
