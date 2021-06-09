@@ -62,3 +62,16 @@ def func(**kwargs):
 data = {"name": "jose", "surname": "garcia"}
 def func(name, **kwargs):
     print(name)
+
+# create a function that follows this structure:
+
+# fun(<operation_math>, <number>):
+#     return operation_math(number)
+
+def apply_operation(math_operation, number):
+    return math_operation(number)
+
+data = {"math_operation": math.sqrt, "number": 100}
+
+
+fun(**data)
