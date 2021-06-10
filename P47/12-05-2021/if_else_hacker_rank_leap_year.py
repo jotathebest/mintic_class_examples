@@ -14,6 +14,8 @@ elif not year % 400 == 0:
 else:
     print("es bisiesto")
 
+# func(year) ---> year, "es bisiesto"
+
 # Solution 2
 
 year=int(input("Enter year: "))
