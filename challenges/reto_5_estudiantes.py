@@ -3,7 +3,7 @@ def get_max_average_price(prices_list: list):
     """Retorna el valor máximo dado una lista de precios
 
     Args:
-        prices_list (list): Lista de precios
+        prices_list (list): Lista de precios, por ejemplo [1.6, 1.2, 1.3]
 
     Returns:
         float: valor máximo
@@ -18,7 +18,7 @@ def get_min_average_price(prices_list: list):
     """Retorna el valor mínimo dado una lista de precios
 
     Args:
-        prices_list (list): Lista de precios
+        prices_list (list): Lista de precios, por ejemplo [1.6, 1.2, 1.3]
 
     Returns:
         float: valor mínimo
@@ -32,7 +32,7 @@ def get_max_average_volume(volume_list: list):
     """Retorna el volumen máximo dado una lista de volumenes de venta
 
     Args:
-        volume_list (list): Lista de volúmenes
+        volume_list (list): Lista de volúmenes, por ejemplo [1.6, 1.2, 1.3]
 
     Returns:
         float: valor máximo
@@ -46,11 +46,12 @@ def get_max_sale_date(dates_list: list, prices_list: list):
     """Retorna la fecha dónde se dió el máximo precio
 
     Args:
-        dates_list (list): lista con el histórico de fechas
-        prices_list (list): lista con el histórico de precios
+        dates_list (list): lista con el histórico de fechas, por ejemplo
+            ["2016-11-13", "2016-11-15", "2016-11-17"]
+        prices_list (list): lista con el histórico de precios, por ejemplo [1.6, 3.2, 1.3]
 
     Returns:
-        str: Fecha con histórico
+        str: Fecha con históricos
     """
     max_price = get_max_average_price(prices_list)
 
@@ -80,8 +81,9 @@ def get_max_price_type(types_list: list, prices_list: list):
     """Retorna el tipo de aguacate con el máximo precio
 
     Args:
-        dates_list (list): lista con el histórico de fechas
-        prices_list (list): lista con el histórico de precios
+        types_list (list): lista con el histórico de fechas, por ejemplo
+            ["organic", "conventional", "organic"]
+        prices_list (list): lista con el histórico de precios, por ejemplo [1.6, 1.2, 1.3]
 
     Returns:
         str: Fecha con histórico
@@ -143,7 +145,7 @@ def get_region_data(data: dict, region: str):
 
     # Extrae acá la información de interés, sigue el ejemplo dado
     region_data = data["region"]
-    types_data = 
+    types_data = data["type"]
     prices_data = 
     dates_data = 
     volumes_data = 
@@ -152,10 +154,11 @@ def get_region_data(data: dict, region: str):
     # index, value. Dado que region_data es un diccionario, tendrás que usar items()
 
     # coloca el iterador acá
-
+    for index, value in region_data.items():
         # si el valor es igual a la region, añade a las listas los datos de interés, sigue el
         # ejemplo
-            #types_list.append(types_data[index])
+            types_list.append(types_data[index])
+            prices_list.append(prices_data[index])
             
 
     return (prices_list, dates_list, types_list, volumes_list)
